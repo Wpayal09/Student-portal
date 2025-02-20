@@ -1,23 +1,33 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
-import RightSidebar from "./RightSidebar"; // Import the new right sidebar component
+import RightSidebar from "./RightSidebar";
+import HeroSection from "./HeroSection";
+import Logout from "./Logout";
 
 function App() {
   return (
-    <div className="flex h-screen">
-      {/* Left Sidebar */}
-      <Sidebar />
-
-      {/* Main Content Area (Navbar and other content) */}
-      <div className="flex-grow">
-        <Navbar />
-        {/* Add other components/content below Navbar */}
-      </div>
-
-      {/* Right Sidebar */}
-      <RightSidebar />
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div className="flex h-screen">
+              <Sidebar />
+              <div className="flex flex-col flex-grow">
+                <Navbar />
+                <div className="flex-grow">
+                  <HeroSection />
+                </div>
+              </div>
+              <RightSidebar />
+            </div>
+          }
+        />
+        <Route path="/logout" element={<Logout />} />
+      </Routes>
+    </Router>
   );
 }
 
