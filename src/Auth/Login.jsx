@@ -6,7 +6,7 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
-import { FcGoogle } from "react-icons/fc"; // Google icon
+import logo from "../assets/Images/GA.png";
 
 function Login({ setIsAuthenticated }) {
   const [email, setEmail] = useState("");
@@ -76,8 +76,11 @@ function Login({ setIsAuthenticated }) {
 
       {/* Login Form */}
       <div className="p-8 bg-white shadow-lg rounded-lg w-96 text-center relative z-10">
+        {/* Logo */}
+        <img src={logo} alt="Logo" className="w-20 mx-auto mb-4" />
+
         <h2 className="text-3xl font-bold text-gray-700 mb-6">
-          Student <span className="text-green-600">Portal</span>
+          Student <span className="text-blue-800">Portal</span>
         </h2>
         {errorMessage && (
           <p className="text-red-500 text-sm mb-4">{errorMessage}</p>
@@ -104,7 +107,7 @@ function Login({ setIsAuthenticated }) {
         <div className="text-right mb-4">
           <button
             onClick={handleForgotPassword}
-            className="text-green-600 text-sm"
+            className="text-black text-sm hover:text-blue-800 "
           >
             Forgot password?
           </button>
